@@ -1,22 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { EmployeeListComponent } from './employee-list/employee-list.component';
-import { EmployeeManagementComponent } from './employee-management/employee-management.component';
-import { AuthGuard } from './auth.guard';
+import { EmployeeListComponent } from './employee/employee-list/employee-list.component';
+import { EmployeeAddComponent } from './employee/employee-add/employee-add.component';
+import { EmployeeUpdateComponent } from './employee/employee-update/employee-update.component';
+import { EmployeeDeleteComponent } from './employee/employee-delete/employee-delete.component';
+import { AdminComponent } from './admin/admin.component';
+import { EmployeeDetailComponent } from './employee/employee-detail/employee-detail.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'employee-list', component: EmployeeListComponent },
-  { path: 'employee-management', component: EmployeeManagementComponent },
-  { path: '', redirectTo: '/login', pathMatch: 'full' }, // Redirect to login if no route is provided
-  { path: '**', redirectTo: '/login' }, 
-  { path: 'employee-list', component: EmployeeListComponent, canActivate: [AuthGuard] },
-
+  { path: 'admin', component: AdminComponent },
+  { path: 'employees', component: EmployeeListComponent },
+  { path: 'employees/add', component: EmployeeAddComponent },
+  { path: 'employees/update/:id', component: EmployeeUpdateComponent },
+  { path: 'employees/delete/:id', component: EmployeeDeleteComponent },
+  { path: 'employees/detail/:id', component: EmployeeDetailComponent },
+  { path: '', redirectTo: '/employees', pathMatch: 'full' },
+  { path: '**', redirectTo: '/employees', pathMatch: 'full' }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class AppRoutingModule {}

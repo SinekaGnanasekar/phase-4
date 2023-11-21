@@ -1,0 +1,29 @@
+
+<div class="container mt-3">
+    <div class="d-flex justify-content-between align-items-center">
+        <button class="btn btn-primary" routerLink="/employees/add">Add Employee</button>
+    </div>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Action</th> 
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees">
+                <td>{{ employee.id }}</td>
+                <td>{{ employee.first_name }}</td>
+                <td>{{ employee.last_name }}</td>
+                <td>{{ employee.email }}</td>
+                <td>
+                    <a class="btn btn-info" routerLink="/employees/detail/:id">View</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

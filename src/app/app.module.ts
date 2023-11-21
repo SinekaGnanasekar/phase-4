@@ -1,25 +1,34 @@
-// app.module.ts
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { EmployeeListComponent } from './employee-list/employee-list.component';
-import { EmployeeManagementComponent } from './employee-management/employee-management.component'; // Ensure correct path
 import { ReactiveFormsModule } from '@angular/forms';
-import { EmployeeService } from './employee.service';
-import { EmployeeFormComponent } from './employee-form.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
+import { AdminComponent } from './admin/admin.component';
+import { AppComponent } from './app.component';
+import { EmployeeListComponent } from './employee/employee-list/employee-list.component';
+import { EmployeeAddComponent } from './employee/employee-add/employee-add.component';
+import { EmployeeUpdateComponent } from './employee/employee-update/employee-update.component';
+import { EmployeeDeleteComponent } from './employee/employee-delete/employee-delete.component';
+import { EmployeeDetailComponent } from './employee/employee-detail/employee-detail.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
+    AdminComponent,
     EmployeeListComponent,
-    EmployeeManagementComponent, 
-    EmployeeFormComponent,
+    EmployeeAddComponent,
+    EmployeeUpdateComponent,
+    EmployeeDeleteComponent,
+    EmployeeDetailComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule,ReactiveFormsModule],
-  providers: [EmployeeService],
-  bootstrap: [AppComponent],
+  imports: [
+    BrowserModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    AppRoutingModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
